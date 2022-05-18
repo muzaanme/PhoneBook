@@ -1,11 +1,6 @@
-
-from operator import index
 from tkinter import *
 from tkinter import messagebox
-from turtle import back, color
 from PIL import Image, ImageTk
-from click import command
-from pyrsistent import b
 from backend import Database
 
 
