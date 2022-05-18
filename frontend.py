@@ -42,7 +42,7 @@ def add_command():
         list1.delete(0, END)
         list1.insert(END, (Name_text.get(), Number.get()))
     else:
-        messagebox.showerror("Error", "Please Enter a 10-digit number")
+        messagebox.showerror("PhoneBookError", "Please Enter a 10-digit number")
 
 def delete_command():
     database.delete(selected_tuple[0])
