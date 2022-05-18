@@ -2,7 +2,7 @@
 from operator import index
 from tkinter import *
 from tkinter import messagebox
-from turtle import back
+from turtle import back, color
 from PIL import Image, ImageTk
 from click import command
 from pyrsistent import b
@@ -11,6 +11,14 @@ from backend import Database
 
 database = Database("contact.db")
 
+def changeOnHover(button, colorOnHover, colorOnLeave):
+    button.bind("<Enter>", func = lambda e:button.config(
+        background = colorOnHover
+    ))
+
+    button.bind("<Leave>", func = lambda e:button.config(
+        background = colorOnLeave
+    ))
 
 def get_selected_row(event):
     try:
@@ -100,23 +108,30 @@ list1.bind('<<ListboxSelect>>', get_selected_row)
 
 #Buttons
 
-b1 = Button(window, text = "View All", width=12, command=view_command)
+b1 = Button(window, text = "View All", width=12, command=view_command, bg="white")
 b1.grid(row=2, column=3)
 
-b2 = Button(window, text = "Search entry", width=12, command= search_command)
+b2 = Button(window, text = "Search entry", width=12, command= search_command, bg="white")
 b2.grid(row=3, column=3)
 
-b3 = Button(window, text = "Add entry", width=12, command= add_command)
+b3 = Button(window, text = "Add entry", width=12, command= add_command, bg="white")
 b3.grid(row=4, column=3)
 
-b4 = Button(window, text = "Update", width=12, command=update_command)
+b4 = Button(window, text = "Update", width=12, command=update_command, bg="white")
 b4.grid(row=5, column=3)
 
-b5 = Button(window, text = "Delete", width=12, command=delete_command)
+b5 = Button(window, text = "Delete", width=12, command=delete_command, bg="white")
 b5.grid(row=6, column=3)
 
-b6 = Button(window, text = "Close", width=12, command=window.destroy)
+b6 = Button(window, text = "Close", width=12, command=window.destroy, bg="white")
 b6.grid(row=7, column=3)
+
+changeOnHover(b1, "#EAE742", "white")
+changeOnHover(b2, "#2CEAD3", "white")
+changeOnHover(b3, "#42C858", "white")
+changeOnHover(b4, "#2CA7EA", "white")
+changeOnHover(b5, "#C13030", "white")
+changeOnHover(b6, "#7E7272", "white")
 
 
 window.mainloop()
