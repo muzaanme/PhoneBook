@@ -1,3 +1,4 @@
+from msilib.schema import File
 from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
@@ -58,7 +59,7 @@ window  = Tk()
 
 window.wm_title("PhoneBook")
 
-icon = Image.open('phoneIcon.png')
+icon = Image.open('D:\\PythonBasics\\Applications\\app5\\PhoneBook\\phoneIcon.png')
 photo = ImageTk.PhotoImage(icon)
 window.wm_iconphoto(False, photo)
 
